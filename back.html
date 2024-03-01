@@ -1,0 +1,39 @@
+<!-- <?php
+    $insert = false;
+    if(isset($_POST['name'])){
+        $server = "localhost";
+        $username = "root";
+        $password = "";
+    
+        $con = mysqli_connect($server, $username, $password);
+    
+        if(!$con){
+            die("connection to this database failed due to" . mysqli_connect_error());
+        }
+        // echo "Success connecting to the db";
+        $NAME = $_POST['NAME'];
+        $AGE = $_POST['AGE'];
+        $MOBILE = $_POST['MOBILE'];
+        $ADDRESS = $_POST['ADDRESS'];
+        $SHOWTIMING = $_POST['SHOWTIMING'];
+        $sql = "INSERT INTO `movie`.`ticket` (`NAME`, `AGE`, `MOBILE`, `DATETIME`, `ADDRESS`, `SHOWTIMING`) VALUES ('$NAME', '$AGE', '$MOBILE', '$DATETIME', '$ADDRESS', '$SHOWTIMING');";
+        // echo $sql;
+        // INSERT INTO `ticket` (`ID`, `NAME`, `AGE`, `MOBILE`, `DATETIME`, `ADDRESS`, `SHOWTIMING`) VALUES ('1', 'Govind Agrawal', '63', '12345678910', current_timestamp(), 'Bari Lane Near Agrawal Bhawan Shirpur.', '10:17:53');    
+        if($con->query($sql) == true){
+            $insert = true;
+        }
+        else{
+            echo "ERROR: $sql <br> $con->error";
+        }
+    
+        $con->close();
+        
+    }
+
+    ?>
+
+
+<?php 
+$con=mysqli_connect("localhost","root","","movie"); 
+if(!$con) { die(" Connection Error "); } 
+?> -->

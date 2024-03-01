@@ -1,0 +1,160 @@
+<!-- <?php
+    $insert = false;
+    if(isset($_POST['name'])){
+        $server = "localhost";
+        $username = "root";
+        $password = "";
+    
+        $con = mysqli_connect($server, $username, $password);
+    
+        if(!$con){
+            die("connection to this database failed due to" . mysqli_connect_error());
+        }
+        
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $showtime = $_POST['showtime'];
+        $price = $_POST['price'];
+        $sql = "INSERT INTO `movie`.`tickett` (`name`, `email`, `phone`, `showtime`, `price`) VALUES ('$name', '$email', '$phone', '$showtime' , '$price');";
+        // echo $sql;
+        // INSERT INTO `movie`.`tickett` (`name`, `email`, `phone`, `showtime`, `date_time`) VALUES ('$name', '$email', '$phone', '$showtime', 'current_timestamp()');        
+        if($con->query($sql) == true){
+            $insert = true;
+        }
+        else{
+            echo "ERROR: $sql <br> $con->error";
+        }
+    
+        $con->close();
+        
+      }
+
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Movie Seat Booking</title>
+  </head>
+  <body>
+    <div class="movie-container">
+      <label> Select a movie:</label>
+      <select id="movie" name="movie">
+        <option value="220">Bullet Train (RS.250)</option>
+        <option value="320">vikram Vedha (RS.150)</option>
+        <option value="250">RRR (RS.110)</option>
+        <option value="260">Doctor Strange (RS.200)</option>
+      </select>
+    </div>
+
+    <ul class="showcase">
+      <li>
+        <div class="seat"></div>
+        <small>Available</small>
+      </li>
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+      <li>
+        <div class="seat sold"></div>
+        <small>Sold</small>
+      </li>
+    </ul>
+    <div class="container">
+      <div class="screen"></div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+        <div class="seat"></div>
+      </div>
+    </div>
+
+    <p class="text">
+      You have selected <span id="count">0</span> seat for a price of RS.<span
+        id="total"
+        >0</span><br><br>
+    </p>
+    <script src="script.js"></script>
+    <?php
+            if($insert == true){
+                echo "<b><p class='submitMsg'>Thank you for your Response.</p></b>";
+            }
+        ?>
+        
+        <form action="" method="post" >
+            <center>
+            <input type="text" id="name" name="name" class="form1" placeholder="Enter your name"><br><br>
+            <input type="email" id="email" name="email" class="form1" placeholder="Enter your email"><br><br>
+
+           <input type="phone" id="phone" name="phone" class="form1" placeholder="Enter your phone"><br><br>
+           <input type="time" id="showtime" name="showtime" class="form1" placeholder="Enter your showtiming"><br><br>
+            <button class="b1" name="cbutton">Submit</button> <br><br>
+            </center>
+        </form>
+  </body>
+</html>
+
